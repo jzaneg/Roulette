@@ -31,6 +31,9 @@ namespace Roulette
                 case 5:
                     DozensBet db = new DozensBet();
                     break;
+                case 6:
+                    ColumnBet cb = new ColumnBet();
+                    break;
             }
             Console.ReadKey();
         }
