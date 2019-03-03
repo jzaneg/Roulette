@@ -34,6 +34,9 @@ namespace Roulette
                 case 6:
                     ColumnBet cb = new ColumnBet();
                     break;
+                case 7:
+                    StreetBet sb = new StreetBet();
+                    break;
             }
             Console.ReadKey();
         }
