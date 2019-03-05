@@ -1,6 +1,6 @@
 # Roulette
 ---
-This application mimics the classic casino 'Roulette' game. Primarily coded in C# I intend to use a fully funcitonal GUI for the user to interact with the game using HTMl, CSS, and JavaSctipt. I also want to add in Node.js similar to socket.io to create an online game room to have friends log in to play.
+This application mimics the classic casino 'Roulette' game. Primarily coded in C# I intend to use a fully funcitonal GUI for the user to interact with the game using HTML, CSS, and JavaSctipt. I also want to add in Node.js similar to socket.io to create an online game room to have friends log in to play.
 
 ## Built With
 - C#
