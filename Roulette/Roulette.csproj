@@ -44,15 +44,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ColumnBet.cs" />
+    <Compile Include="DoubleStreet.cs" />
     <Compile Include="DozensBet.cs" />
     <Compile Include="EvenOrOddBet.cs" />
     <Compile Include="LowOrHighBet.cs" />
     <Compile Include="NumberBet.cs" />
+    <Compile Include="RedOrBlackBet.cs" />
     <Compile Include="RouletteWheel.cs" />
     <Compile Include="IPlayerBet.cs" />
     <Compile Include="Number.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SplitBet.cs" />
     <Compile Include="StreetBet.cs" />
   </ItemGroup>
   <ItemGroup>

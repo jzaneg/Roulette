@@ -25,13 +25,14 @@ namespace Roulette
         public bool BetDidWin()
         {
             RouletteWheel num = new RouletteWheel();
+            var number = num.SpinWheel();
 
-            if (numBet.Equals(num))
+            if (numBet.Equals(number.value))
             {
                Console.WriteLine("Congrats! You've Won!");
                result = true;
             }
-            else if (!numBet.Equals(num))
+            else if (!numBet.Equals(number.value)) // <== Not Necessary
             {
                 Console.WriteLine("I'm sorry, your bet lost.");
                 result = false;

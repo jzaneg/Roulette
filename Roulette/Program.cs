@@ -11,7 +11,7 @@ namespace Roulette
         static void Main(string[] args)
         {
             
-            Console.WriteLine("Please choose an option:\n1:Spin the wheel\n2:Bet a number\n3:Bet Evens/Odds\n4:Bet Lows/Highs\n5:Bet Dozens\n6:Bet Columns\n7:Bet Streets\n8:Bet Double Rows (6 numbers)\n9:Bet Split\n10:Bet Corners");
+            Console.WriteLine("Please choose an option:\n1:Spin the wheel\n2:Bet a number\n3:Bet Red or Black\n4:Bet Evens/Odds\n5:Bet Lows/Highs\n6:Bet Dozens\n7:Bet Columns\n8:Bet Streets\n9:Bet Double Rows (6 numbers)\n10:Bet Split\n11:Bet Corners");
 
             int playerChoice = int.Parse(Console.ReadLine());
             switch(playerChoice)
@@ -23,19 +23,28 @@ namespace Roulette
                     NumberBet nb = new NumberBet();
                     break;
                 case 3:
-                    EvenOrOddBet eob = new EvenOrOddBet();
+                    RedOrBlackBet rb = new RedOrBlackBet();
                     break;
                 case 4:
-                    LowOrHighBet lhb = new LowOrHighBet();
+                    EvenOrOddBet eob = new EvenOrOddBet();
                     break;
                 case 5:
-                    DozensBet db = new DozensBet();
+                    LowOrHighBet lhb = new LowOrHighBet();
                     break;
                 case 6:
-                    ColumnBet cb = new ColumnBet();
+                    DozensBet db = new DozensBet();
                     break;
                 case 7:
+                    ColumnBet cb = new ColumnBet();
+                    break;
+                case 8:
                     StreetBet sb = new StreetBet();
+                    break;
+                case 9:
+                    DoubleStreet ds = new DoubleStreet();
+                    break;
+                case 10:
+                    SplitBet splb = new SplitBet();
                     break;
             }
             Console.ReadKey();
