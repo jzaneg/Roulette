@@ -20,13 +20,5 @@ namespace Roulette
         {
             return this.value + " " + this.color;
         }
-
-        //public bool DidWin(Number num)
-        //{
-        //    if (player bet == Number/color spun)
-        //    {
-
-        //    };
-        //}
     }
 }

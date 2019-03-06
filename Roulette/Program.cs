@@ -46,8 +46,16 @@ namespace Roulette
                 case 10:
                     SplitBet splb = new SplitBet();
                     break;
+                case 11:
+                    CornerBet cnrb = new CornerBet();
+                    break;
             }
             Console.ReadKey();
         }
     }
 }
+//TODO
+// Validation checks for all classes.
+// Return to start to play again feature
+//incorporate monetary variable to play?
+//
