@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace Roulette
 {
-    class CornerBet : IPlayerBet
+    class CornerBet : RouletteWheel, IPlayerBet
     {
         bool result;
-        int cbNumOne;
-        int cbNumTwo;
-        int cbNumThree;
-        int cbNumFour;
-        int[] cbNums = new int[4];
+        string cbNumOne;
+        string cbNumTwo;
+        string cbNumThree;
+        string cbNumFour;
+        string[] cbNums = new string[4];
 
         public CornerBet()
         {
@@ -24,22 +24,22 @@ namespace Roulette
         {
             Console.WriteLine("Which numbers do you wish to place a corner bet on? Numbers must be connected horizontally and vertically.\nEX: 1, 2, 4 and 5 | 25, 26, 28 and 29.");
             Console.WriteLine("Enter the first number.");
-            cbNumOne = int.Parse(Console.ReadLine());
+            cbNumOne = Console.ReadLine();
             Console.WriteLine("Enter the second number.");
-            cbNumTwo = int.Parse(Console.ReadLine());
+            cbNumTwo = Console.ReadLine();
             Console.WriteLine("Enter the third number.");
-            cbNumThree = int.Parse(Console.ReadLine());
+            cbNumThree = Console.ReadLine();
             Console.WriteLine("Enter the fourth number.");
-            cbNumFour = int.Parse(Console.ReadLine());
+            cbNumFour = Console.ReadLine();
         }
 
         public bool BetDidWin()
         {
-            RouletteWheel num = new RouletteWheel();
-            var number = num.SpinWheel();
-            int[] cbNums = { cbNumOne, cbNumTwo, cbNumThree, cbNumFour };
+            var number = SpinWheel();
 
-            if (cbNums.Contains(number.value))
+            string[] cbNums = { cbNumOne, cbNumTwo, cbNumThree, cbNumFour };
+
+            if (cbNums.Contains(number.number))
             {
                 Console.WriteLine("Congrats! You've Won!");
                 result = true;

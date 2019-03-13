@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Roulette
 {
-    class DozensBet : IPlayerBet
+    class DozensBet : RouletteWheel, IPlayerBet
     {
         int BetByDozens;
         bool result;
@@ -24,11 +24,11 @@ namespace Roulette
 
         public bool BetDidWin()
         {
-            RouletteWheel num = new RouletteWheel();
-            var number = num.SpinWheel();
-            var firstDozen = num.tiles.Skip(2).Take(12).ToList();
-            var secondDozen = num.tiles.Skip(14).Take(12).ToList();
-            var thirdDozen = num.tiles.Skip(26).Take(12).ToList();
+            var number = SpinWheel();
+
+            var firstDozen = tiles.Skip(2).Take(12).ToList();
+            var secondDozen = tiles.Skip(14).Take(12).ToList();
+            var thirdDozen = tiles.Skip(26).Take(12).ToList();
 
             if (BetByDozens == 1)
             {

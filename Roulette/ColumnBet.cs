@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Roulette
 {
-    class ColumnBet : IPlayerBet
+    class ColumnBet : RouletteWheel, IPlayerBet
     {
         int BetByColumns;
         bool result;
@@ -24,15 +24,15 @@ namespace Roulette
 
         public bool BetDidWin()
         {
-            RouletteWheel num = new RouletteWheel();
-            var number = num.SpinWheel();
-            List<int> columnOne = new List<int> {1, 4, 7, 10, 13, 16, 19, 22, 25, 28, 31, 34};
-            List<int> columnTwo = new List<int> {2, 5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35};
-            List<int> columnThree = new List<int> {3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36};
+            var number = SpinWheel();
+
+            List<string> columnOne = new List<string> {"1", "4", "7", "10", "13", "16", "19", "22", "25", "28", "31", "34"};
+            List<string> columnTwo = new List<string> {"2", "5", "8", "11", "14", "17", "20", "23", "26", "29", "32", "35"};
+            List<string> columnThree = new List<string> {"3", "6", "9", "12", "15", "18", "21", "24", "27", "30", "33", "36"};
 
             if (BetByColumns == 1)
             {
-                if (columnOne.Contains(number.value))
+                if (columnOne.Contains(number.number))
                 {
                     Console.WriteLine("Congrats! You've Won!");
                     result = true;
@@ -45,7 +45,7 @@ namespace Roulette
             }
             else if (BetByColumns == 2)
             {
-                if (columnTwo.Contains(number.value))
+                if (columnTwo.Contains(number.number))
                 {
                     Console.WriteLine("Congrats! You've Won!");
                     result = true;
@@ -58,7 +58,7 @@ namespace Roulette
             }
             else if (BetByColumns == 3)
             {
-                if (columnThree.Contains(number.value))
+                if (columnThree.Contains(number.number))
                 {
                     Console.WriteLine("Congrats! You've Won!");
                     result = true;

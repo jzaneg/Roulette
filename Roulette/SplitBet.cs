@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Roulette
 {
-    class SplitBet : IPlayerBet
+    class SplitBet : RouletteWheel, IPlayerBet
     {
         bool result;
-        int sbNumOne;
-        int sbNumTwo;
+        string sbNumOne;
+        string sbNumTwo;
 
         public SplitBet()
         {
@@ -21,17 +21,16 @@ namespace Roulette
         {
             Console.WriteLine("Which numbers do you wish to bet a split on? Bet must be on two horizontally or vertically connnected numbers.\nEX: 1&2, 25&28.");
             Console.WriteLine("Enter the first number.");
-            sbNumOne = int.Parse(Console.ReadLine());
+            sbNumOne = Console.ReadLine();
             Console.WriteLine("Enter the second number.");
-            sbNumTwo = int.Parse(Console.ReadLine());
+            sbNumTwo = Console.ReadLine();
         }
 
         public bool BetDidWin()
         {
-            RouletteWheel num = new RouletteWheel();
-            var number = num.SpinWheel();
+            var number = SpinWheel();
 
-            if (sbNumOne.Equals(number.value) || sbNumTwo.Equals(number.value))
+            if (sbNumOne.Equals(number.number) || sbNumTwo.Equals(number.number))
             {
                 Console.WriteLine("Congrats! You've Won!");
                 result = true;

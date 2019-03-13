@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Roulette
 {
-    class RedOrBlackBet : IPlayerBet
+    class RedOrBlackBet : RouletteWheel, IPlayerBet
     {
         int colorBet;
         string betColor;
@@ -25,15 +25,14 @@ namespace Roulette
 
         public bool BetDidWin()
         {
-            RouletteWheel num = new RouletteWheel();
-            var color = num.SpinWheel();
-            
+            var color = SpinWheel();
+
 
             if (colorBet == 1)
             {
                 betColor = "red";
             }
-            else
+            else if (colorBet == 2)
             {
                 betColor = "black";
             }

@@ -6,12 +6,10 @@ using System.Threading.Tasks;
 
 namespace Roulette
 {
-    class EvenOrOddBet : IPlayerBet
+    class EvenOrOddBet : RouletteWheel, IPlayerBet
     {
         char EvenOddBet;
         bool result;
-        //int evenBet;
-        //int oddBet;
 
         public EvenOrOddBet()
         {
@@ -26,18 +24,19 @@ namespace Roulette
 
         public bool BetDidWin() 
         {
-            
-            RouletteWheel num = new RouletteWheel();
-            Number number = num.SpinWheel();
-           
+            var number = SpinWheel();
+
+            List<string> evens = new List<string> { "2", "4", "6", "8", "10", "12", "14", "16", "18", "20", "22", "24", "26", "28", "30", "32", "34", "36" };
+            List<string> odds = new List<string> { "1", "3", "5", "7", "9", "11", "13", "15", "17", "19", "21", "23", "25", "27", "29", "31", "33", "35" };
+
             if (EvenOddBet == 'e')
             {
-                if (number.value % 2 == 0) //<== num is even
+                if (evens.Contains(number.number)) //<== num is even
                 {
                     Console.WriteLine("Congrats! You've Won!");
                     result = true;
                 }
-                else if (number.value % 2 != 0)//<== num is odd
+                else
                 {
                     Console.WriteLine("I'm sorry, your bet lost.");
                     result = false;
@@ -45,12 +44,12 @@ namespace Roulette
             }
             else if (EvenOddBet == 'o')
             {
-                if (number.value % 2 != 0)//<== num is odd
+                if (odds.Contains(number.number))//<== num is odd
                 {
                     Console.WriteLine("Congrats! You've Won!");
                     result = true;
                 }
-                else if (number.value % 2 == 0)//<== num is even
+                else
                 {
                     Console.WriteLine("I'm sorry, your bet lost.");
                     result = false;
@@ -60,8 +59,3 @@ namespace Roulette
         }
     }
 }
-//DI
-//public controller(SqlConnection sqlconnection
-//{
-//  m_connection = sqlconnection;
-//}

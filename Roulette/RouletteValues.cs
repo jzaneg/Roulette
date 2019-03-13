@@ -6,19 +6,19 @@ using System.Threading.Tasks;
 
 namespace Roulette
 {
-    public class Number 
+    public class RouletteValues 
     {
-        public int value { get; set; }
+        public string number { get; set; }
         public string color { get; set; }
 
-        public Number(int num, string color)
+        public RouletteValues(string number, string color)
         {
-            this.value = num;
+            this.number = number;
             this.color = color;
         }
         public override string ToString()
         {
-            return this.value + " " + this.color;
+            return this.number + " " + this.color;
         }
     }
 }

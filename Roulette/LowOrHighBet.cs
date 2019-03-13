@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Roulette
 {
-    class LowOrHighBet : IPlayerBet
+    class LowOrHighBet : RouletteWheel, IPlayerBet
     {
         char LowHighBet;
         bool result;
@@ -24,13 +24,14 @@ namespace Roulette
 
         public bool BetDidWin()
         {
-            RouletteWheel num = new RouletteWheel();
-            var number = num.SpinWheel();
-            var lowBet = num.tiles.Skip(2).Take(18).ToList();
-            var highBet = num.tiles.Skip(20).Take(18).ToList();
-
+            var lowBet = tiles.Skip(2).Take(18).ToList();
+            var highBet = tiles.Skip(20).Take(18).ToList();
+            
+            var number = SpinWheel();
+            
             if (LowHighBet == 'l')
             {
+                
                 if (lowBet.Contains(number))
                 {
                     Console.WriteLine("Congrats! You've Won!");
@@ -44,6 +45,7 @@ namespace Roulette
             }
             else if (LowHighBet == 'h')
             {
+               
                 if (highBet.Contains(number))
                 {
                     Console.WriteLine("Congrats! You've Won!");

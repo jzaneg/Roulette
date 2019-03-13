@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Roulette
 {
-    class DoubleStreet : IPlayerBet
+    class DoubleStreet : RouletteWheel, IPlayerBet
     {
         int BetByDoubleStreets;
         bool result;
@@ -25,24 +25,24 @@ namespace Roulette
 
         public bool BetDidWin()
         {
-            RouletteWheel num = new RouletteWheel();
-            var number = num.SpinWheel();
-            List<int> dblStreetOne = new List<int> { 1, 2, 3, 4, 5, 6 };
-            List<int> dblStreetTwo = new List<int> { 4, 5, 6, 7, 8, 9 };
-            List<int> dblStreetThree = new List<int> { 7, 8, 9, 10, 11, 12 };
-            List<int> dblStreetFour = new List<int> { 10, 11, 12, 13, 14, 15 };
-            List<int> dblStreetFive = new List<int> { 13, 14, 15, 16, 17, 18 };
-            List<int> dblStreetSix = new List<int> { 16, 17, 18, 19, 20, 21 }; 
-            List<int> dblStreetSeven = new List<int> { 19, 20, 21, 22, 23, 24 };
-            List<int> dblStreetEight = new List<int> { 22, 23, 24, 25, 26, 27 };
-            List<int> dblStreetNine = new List<int> { 25, 26, 27, 28, 29, 30 };
-            List<int> dblStreetTen = new List<int> { 28, 29, 30, 31, 32, 33 };
-            List<int> dblStreetEleven = new List<int> { 31, 32, 33, 34, 35, 36 };
+            var number = SpinWheel();
+
+            List<string> dblStreetOne = new List<string> { "1", "2", "3", "4", "5", "6"};
+            List<string> dblStreetTwo = new List<string> { "4", "5", "6", "7", "8", "9" };
+            List<string> dblStreetThree = new List<string> { "7", "8", "9", "10", "11", "12" };
+            List<string> dblStreetFour = new List<string> { "10", "11", "12", "13", "14", "15" };
+            List<string> dblStreetFive = new List<string> { "13", "14", "15", "16", "17", "18" };
+            List<string> dblStreetSix = new List<string> { "16", "17", "18", "19", "20", "21" }; 
+            List<string> dblStreetSeven = new List<string> { "19", "20", "21", "22", "23", "24" };
+            List<string> dblStreetEight = new List<string> { "22", "23", "24", "25", "26", "27" };
+            List<string> dblStreetNine = new List<string> { "25", "26", "27", "28", "29", "30" };
+            List<string> dblStreetTen = new List<string> { "28", "29", "30", "31", "32", "33" };
+            List<string> dblStreetEleven = new List<string> { "31", "32", "33", "34", "35", "36" };
 
             switch (BetByDoubleStreets)
             {
                 case 1:
-                    if (dblStreetOne.Contains(number.value))
+                    if (dblStreetOne.Contains(number.number))
                     {
                         Console.WriteLine("Congrats! You've Won!");
                         result = true;
@@ -54,7 +54,7 @@ namespace Roulette
                     }
                     break;
                 case 2:
-                    if (dblStreetTwo.Contains(number.value))
+                    if (dblStreetTwo.Contains(number.number))
                     {
                         Console.WriteLine("Congrats! You've Won!");
                         result = true;
@@ -66,7 +66,7 @@ namespace Roulette
                     }
                     break;
                 case 3:
-                    if (dblStreetThree.Contains(number.value))
+                    if (dblStreetThree.Contains(number.number))
                     {
                         Console.WriteLine("Congrats! You've Won!");
                         result = true;
@@ -78,7 +78,7 @@ namespace Roulette
                     }
                     break;
                 case 4:
-                    if (dblStreetFour.Contains(number.value))
+                    if (dblStreetFour.Contains(number.number))
                     {
                         Console.WriteLine("Congrats! You've Won!");
                         result = true;
@@ -90,7 +90,7 @@ namespace Roulette
                     }
                     break;
                 case 5:
-                    if (dblStreetFive.Contains(number.value))
+                    if (dblStreetFive.Contains(number.number))
                     {
                         Console.WriteLine("Congrats! You've Won!");
                         result = true;
@@ -102,7 +102,7 @@ namespace Roulette
                     }
                     break;
                 case 6:
-                    if (dblStreetSix.Contains(number.value))
+                    if (dblStreetSix.Contains(number.number))
                     {
                         Console.WriteLine("Congrats! You've Won!");
                         result = true;
@@ -114,7 +114,7 @@ namespace Roulette
                     }
                     break;
                 case 7:
-                    if (dblStreetSeven.Contains(number.value))
+                    if (dblStreetSeven.Contains(number.number))
                     {
                         Console.WriteLine("Congrats! You've Won!");
                         result = true;
@@ -126,7 +126,7 @@ namespace Roulette
                     }
                     break;
                 case 8:
-                    if (dblStreetEight.Contains(number.value))
+                    if (dblStreetEight.Contains(number.number))
                     {
                         Console.WriteLine("Congrats! You've Won!");
                         result = true;
@@ -138,7 +138,7 @@ namespace Roulette
                     }
                     break;
                 case 9:
-                    if (dblStreetNine.Contains(number.value))
+                    if (dblStreetNine.Contains(number.number))
                     {
                         Console.WriteLine("Congrats! You've Won!");
                         result = true;
@@ -150,7 +150,7 @@ namespace Roulette
                     }
                     break;
                 case 10:
-                    if (dblStreetTen.Contains(number.value))
+                    if (dblStreetTen.Contains(number.number))
                     {
                         Console.WriteLine("Congrats! You've Won!");
                         result = true;
@@ -162,7 +162,7 @@ namespace Roulette
                     }
                     break;
                 case 11:
-                    if (dblStreetEleven.Contains(number.value))
+                    if (dblStreetEleven.Contains(number.number))
                     {
                         Console.WriteLine("Congrats! You've Won!");
                         result = true;

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Roulette
 {
-    class StreetBet : IPlayerBet
+    class StreetBet : RouletteWheel, IPlayerBet
     {
         int BetByStreets;
         bool result;
@@ -26,25 +26,25 @@ namespace Roulette
 
         public bool BetDidWin()
         {
-            RouletteWheel num = new RouletteWheel();
-            var number = num.SpinWheel();
-            List<int> streetOne = new List<int> {1, 2, 3};
-            List<int> streetTwo = new List<int> {4, 5, 6};
-            List<int> streetThree = new List<int> {7, 8, 9};
-            List<int> streetFour = new List<int> {10, 11, 12};
-            List<int> streetFive = new List<int> {13, 14, 15};
-            List<int> streetSix = new List<int> {16, 17, 18};
-            List<int> streetSeven = new List<int> {19, 20, 21};
-            List<int> streetEight = new List<int> {22, 23, 24};
-            List<int> streetNine = new List<int> {25, 26, 27};
-            List<int> streetTen = new List<int> {28, 29, 30};
-            List<int> streetEleven = new List<int> {31, 32, 33};
-            List<int> streetTwelve = new List<int> {34, 35,36};
+            var number = SpinWheel();
+
+            List<string> streetOne = new List<string> {"1", "2", "3"};
+            List<string> streetTwo = new List<string> {"4", "5", "6"};
+            List<string> streetThree = new List<string> {"7", "8", "9"};
+            List<string> streetFour = new List<string> {"10", "11", "12"};
+            List<string> streetFive = new List<string> {"13", "14", "15"};
+            List<string> streetSix = new List<string> {"16", "17", "18"};
+            List<string> streetSeven = new List<string> {"19", "20", "21"};
+            List<string> streetEight = new List<string> {"22", "23", "24"};
+            List<string> streetNine = new List<string> {"25", "26", "27"};
+            List<string> streetTen = new List<string> {"28", "29", "30"};
+            List<string> streetEleven = new List<string> {"31", "32", "33"};
+            List<string> streetTwelve = new List<string> {"34", "35","36"};
 
             switch (BetByStreets)
             {
                 case 1:
-                    if (streetOne.Contains(number.value))
+                    if (streetOne.Contains(number.number))
                     {
                         Console.WriteLine("Congrats! You've Won!");
                         result = true;
@@ -56,7 +56,7 @@ namespace Roulette
                     }
                     break;
                 case 2:
-                    if (streetTwo.Contains(number.value))
+                    if (streetTwo.Contains(number.number))
                     {
                         Console.WriteLine("Congrats! You've Won!");
                         result = true;
@@ -68,7 +68,7 @@ namespace Roulette
                     }
                     break;
                 case 3:
-                    if (streetThree.Contains(number.value))
+                    if (streetThree.Contains(number.number))
                     {
                         Console.WriteLine("Congrats! You've Won!");
                         result = true;
@@ -80,7 +80,7 @@ namespace Roulette
                     }
                     break;
                 case 4:
-                    if (streetFour.Contains(number.value))
+                    if (streetFour.Contains(number.number))
                     {
                         Console.WriteLine("Congrats! You've Won!");
                         result = true;
@@ -92,7 +92,7 @@ namespace Roulette
                     }
                     break;
                 case 5:
-                    if (streetFive.Contains(number.value))
+                    if (streetFive.Contains(number.number))
                     {
                         Console.WriteLine("Congrats! You've Won!");
                         result = true;
@@ -104,7 +104,7 @@ namespace Roulette
                     }
                     break;
                 case 6:
-                    if (streetSix.Contains(number.value))
+                    if (streetSix.Contains(number.number))
                     {
                         Console.WriteLine("Congrats! You've Won!");
                         result = true;
@@ -116,7 +116,7 @@ namespace Roulette
                     }
                     break;
                 case 7:
-                    if (streetSeven.Contains(number.value))
+                    if (streetSeven.Contains(number.number))
                     {
                         Console.WriteLine("Congrats! You've Won!");
                         result = true;
@@ -128,7 +128,7 @@ namespace Roulette
                     }
                     break;
                 case 8:
-                    if (streetEight.Contains(number.value))
+                    if (streetEight.Contains(number.number))
                     {
                         Console.WriteLine("Congrats! You've Won!");
                         result = true;
@@ -140,7 +140,7 @@ namespace Roulette
                     }
                     break;
                 case 9:
-                    if (streetNine.Contains(number.value))
+                    if (streetNine.Contains(number.number))
                     {
                         Console.WriteLine("Congrats! You've Won!");
                         result = true;
@@ -152,7 +152,7 @@ namespace Roulette
                     }
                     break;
                 case 10:
-                    if (streetTen.Contains(number.value))
+                    if (streetTen.Contains(number.number))
                     {
                         Console.WriteLine("Congrats! You've Won!");
                         result = true;
@@ -164,7 +164,7 @@ namespace Roulette
                     }
                     break;
                 case 11:
-                    if (streetEleven.Contains(number.value))
+                    if (streetEleven.Contains(number.number))
                     {
                         Console.WriteLine("Congrats! You've Won!");
                         result = true;
@@ -176,7 +176,7 @@ namespace Roulette
                     }
                     break;
                 case 12:
-                    if (streetTwelve.Contains(number.value))
+                    if (streetTwelve.Contains(number.number))
                     {
                         Console.WriteLine("Congrats! You've Won!");
                         result = true;
