@@ -19,7 +19,21 @@ namespace Roulette
         public void PlaceBet()
         {
             Console.WriteLine("Do you want to bet on low numbers (1 - 18) or high numbers (19 - 38)?\nPress 'l' for low or 'h' for high.");
-            LowHighBet = char.Parse(Console.ReadLine());
+            while ((LowHighBet != 'l') && (LowHighBet != 'h'))
+            {
+                try
+                {
+                    LowHighBet = char.Parse(Console.ReadLine());
+                    if ((LowHighBet != 'l') && (LowHighBet != 'h'))
+                    {
+                        Console.WriteLine("Please enter 'e' to bet evens or 'o' to bet odds.");
+                    }
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Please enter 'e' to bet evens or 'o' to bet odds.");
+                }
+            }
         }
 
         public bool BetDidWin()

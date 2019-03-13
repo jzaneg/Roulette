@@ -8,7 +8,7 @@ namespace Roulette
 {
     class StreetBet : RouletteWheel, IPlayerBet
     {
-        int BetByStreets;
+        int BetByStreets = 0;
         bool result;
 
         public StreetBet()
@@ -21,7 +21,21 @@ namespace Roulette
             Console.WriteLine("Which street do you want to bet on?\nPress the number indicating your bet.\n1: numbers 1, 2, and 3.\n2: numbers 4, 5, and 6.\n3: numbers 7, 8, and 9\n4: numbers 10, 11, and 12.\n" +
                               "5: numbers 13, 14, and 15.\n6: numbers 16, 17, and 18.\n7: numbers 19, 20, and 21.\n8: numbers 22, 23, and 24.\n9: numbers 25, 26, and 27.\n10: numbers 28, 29, and 30.\n11: numbers 31, 32, and 33.\n" +
                               "12: numbers 34, 35, and 36");
-            BetByStreets = int.Parse(Console.ReadLine());
+            while (BetByStreets < 1 || BetByStreets > 12)
+            {
+                try
+                {
+                    BetByStreets = int.Parse(Console.ReadLine());
+                    if (BetByStreets < 1 || BetByStreets > 12)
+                    {
+                        Console.WriteLine("Please enter a number between 1 and 12.");
+                    }
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Please enter a number between 1 and 12.");
+                }
+            }
         }
 
         public bool BetDidWin()

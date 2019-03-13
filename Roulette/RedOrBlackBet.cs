@@ -8,7 +8,7 @@ namespace Roulette
 {
     class RedOrBlackBet : RouletteWheel, IPlayerBet
     {
-        int colorBet;
+        int colorBet = 0;
         string betColor;
         bool result;
 
@@ -20,7 +20,21 @@ namespace Roulette
         public void PlaceBet()
         {
             Console.WriteLine("Which color do you wish to bet on?\nPress 1 for Red or 2 for Black.");
-            colorBet = int.Parse(Console.ReadLine());
+            while (colorBet < 1 || colorBet > 2)
+            {
+                try
+                {
+                    colorBet = int.Parse(Console.ReadLine());
+                    if (colorBet < 1 || colorBet > 2)
+                    {
+                        Console.WriteLine("Please enter either 1 to bet Red or 2 to bet Black.");
+                    }
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Please enter either 1 to bet Red or 2 to bet Black.");
+                }
+            }
         }
 
         public bool BetDidWin()

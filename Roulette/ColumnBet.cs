@@ -8,7 +8,7 @@ namespace Roulette
 {
     class ColumnBet : RouletteWheel, IPlayerBet
     {
-        int BetByColumns;
+        int BetByColumns = 0;
         bool result;
 
         public ColumnBet()
@@ -19,7 +19,21 @@ namespace Roulette
         public void PlaceBet()
         {
             Console.WriteLine("Which column do you want to bet on?\nPress 1, 2, or 3\n1: numbers 1, 4, 7, 10, 13, 16, 19, 22, 25, 28, 31, and 34.\n2: numbers 2, 5, 8, 11, 14, 17, 20, 23, 26, 29, 32, and 35.\n3: numbers 3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, and 36.");
-            BetByColumns = int.Parse(Console.ReadLine());
+            while (BetByColumns < 1 || BetByColumns > 3)
+            {
+                try
+                {
+                    BetByColumns = int.Parse(Console.ReadLine());
+                    if (BetByColumns < 1 || BetByColumns > 3)
+                    {
+                        Console.WriteLine("Please enter a valid between 1 and 3.");
+                    }
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Please enter a valid between 1 and 3.");
+                }
+            } 
         }
 
         public bool BetDidWin()

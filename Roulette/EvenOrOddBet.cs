@@ -19,7 +19,21 @@ namespace Roulette
         public void PlaceBet()
         {
             Console.WriteLine("Do you want to bet on evens or odds?\nPress 'e' for evens or 'o' for odds.");
-            EvenOddBet = char.Parse(Console.ReadLine());
+            while ((EvenOddBet != 'e') && (EvenOddBet != 'o'))
+            {
+                try
+                {
+                    EvenOddBet = char.Parse(Console.ReadLine());
+                    if ((EvenOddBet != 'e') && (EvenOddBet != 'o'))
+                    {
+                        Console.WriteLine("Please enter 'e' to bet evens or 'o' to bet odds.");
+                    }
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Please enter 'e' to bet evens or 'o' to bet odds.");
+                }
+            }
         }
 
         public bool BetDidWin() 

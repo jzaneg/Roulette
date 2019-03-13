@@ -8,7 +8,7 @@ namespace Roulette
 {
     class DozensBet : RouletteWheel, IPlayerBet
     {
-        int BetByDozens;
+        int BetByDozens = 0;
         bool result;
 
         public DozensBet()
@@ -19,7 +19,22 @@ namespace Roulette
         public void PlaceBet()
         {
             Console.WriteLine("Which set of dozens do you want to bet on? Press 1, 2, or 3.\n1: numbers 1 - 12.\n2: numbers 13 - 24.\n3: numbers 25 - 36.");
-            BetByDozens = int.Parse(Console.ReadLine());
+            while (BetByDozens < 1 || BetByDozens > 3)
+            {
+                try
+                {
+                    BetByDozens = int.Parse(Console.ReadLine());
+                    if (BetByDozens < 1 || BetByDozens > 3)
+                    {
+                        Console.WriteLine("Please enter a number between 1 and 3.");
+                    }
+                }
+                catch (FormatException)
+                {
+
+                    Console.WriteLine("Please enter a valid number between 1 and 3.");
+                }
+            }
         }
 
         public bool BetDidWin()

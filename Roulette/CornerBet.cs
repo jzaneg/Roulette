@@ -9,11 +9,10 @@ namespace Roulette
     class CornerBet : RouletteWheel, IPlayerBet
     {
         bool result;
-        string cbNumOne;
-        string cbNumTwo;
-        string cbNumThree;
-        string cbNumFour;
-        string[] cbNums = new string[4];
+        int cbNumOne = 0;
+        int cbNumTwo = 0;
+        int cbNumThree = 0;
+        int cbNumFour = 0;
 
         public CornerBet()
         {
@@ -24,20 +23,76 @@ namespace Roulette
         {
             Console.WriteLine("Which numbers do you wish to place a corner bet on? Numbers must be connected horizontally and vertically.\nEX: 1, 2, 4 and 5 | 25, 26, 28 and 29.");
             Console.WriteLine("Enter the first number.");
-            cbNumOne = Console.ReadLine();
+            while (cbNumOne < 1 || cbNumOne > 36)
+            {
+                try
+                {
+                    cbNumOne = int.Parse(Console.ReadLine());
+                    if (cbNumOne < 1 || cbNumOne > 3)
+                    {
+                        Console.WriteLine("Please enter a valid between 1 and 36.");
+                    }
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Please enter a valid between 1 and 36.");
+                }
+            }
             Console.WriteLine("Enter the second number.");
-            cbNumTwo = Console.ReadLine();
+            while (cbNumTwo < 1 || cbNumTwo > 36 || cbNumTwo == cbNumOne)
+            {
+                try
+                {
+                    cbNumTwo = int.Parse(Console.ReadLine());
+                    if (cbNumTwo < 1 || cbNumTwo > 3 || cbNumTwo == cbNumOne)
+                    {
+                        Console.WriteLine("Please enter a valid between 1 and 36.");
+                    }
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Please enter a valid between 1 and 36.");
+                }
+            }
             Console.WriteLine("Enter the third number.");
-            cbNumThree = Console.ReadLine();
+            while (cbNumThree < 1 || cbNumThree > 36 || cbNumThree == cbNumOne || cbNumThree == cbNumTwo)
+            {
+                try
+                {
+                    cbNumThree = int.Parse(Console.ReadLine());
+                    if (cbNumThree < 1 || cbNumThree > 3 || cbNumThree == cbNumOne || cbNumThree == cbNumTwo)
+                    {
+                        Console.WriteLine("Please enter a valid between 1 and 36.");
+                    }
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Please enter a valid between 1 and 36.");
+                }
+            }
             Console.WriteLine("Enter the fourth number.");
-            cbNumFour = Console.ReadLine();
+            while (cbNumFour < 1 || cbNumFour > 36 || cbNumFour == cbNumOne || cbNumFour == cbNumTwo || cbNumFour == cbNumThree)
+            {
+                try
+                {
+                    cbNumFour = int.Parse(Console.ReadLine());
+                    if (cbNumFour < 1 || cbNumFour > 36 || cbNumFour == cbNumOne || cbNumFour == cbNumTwo || cbNumFour == cbNumThree)
+                    {
+                        Console.WriteLine("Please enter a valid between 1 and 36.");
+                    }
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Please enter a valid between 1 and 36.");
+                }
+            }
         }
 
         public bool BetDidWin()
         {
             var number = SpinWheel();
 
-            string[] cbNums = { cbNumOne, cbNumTwo, cbNumThree, cbNumFour };
+            string[] cbNums = new string[4] { cbNumOne.ToString(), cbNumTwo.ToString(), cbNumThree.ToString(), cbNumFour.ToString() };
 
             if (cbNums.Contains(number.number))
             {

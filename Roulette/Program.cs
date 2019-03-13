@@ -17,7 +17,8 @@ namespace Roulette
         public static void playRoulette()
         {
             Console.WriteLine("Welcome to Roulette. Please place your bet.");
-            Console.WriteLine("Please choose an option:\n1:Spin the wheel\n2:Bet a number\n3:Bet Red or Black\n4:Bet Evens/Odds\n5:Bet Lows/Highs\n6:Bet Dozens\n7:Bet Columns\n8:Bet Streets\n9:Bet Double Rows (6 numbers)\n10:Bet Split\n11:Bet Corners\n12: Quit Playing");
+            Console.WriteLine("Please choose an option:\n");
+            Console.WriteLine("1:Spin the wheel\n2:Bet a number\n3:Bet Red or Black\n4:Bet Evens/Odds\n5:Bet Lows/Highs\n6:Bet Dozens\n7:Bet Columns\n8:Bet Streets\n9:Bet Double Rows (6 numbers)\n10:Bet Split\n11:Bet Corners\n12: Quit Playing");
             
             int playerChoice = 0;
             while (playerChoice < 1 || playerChoice > 12)

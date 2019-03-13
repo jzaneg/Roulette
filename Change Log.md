@@ -63,6 +63,9 @@ Table of Contents
 - 12-MAR-2019 | Had to change RouletteValues input types to both be string to accomodate for '00' bet.
   * finished updating classes with new string attributes.
   * have to finish adding exception handling.
+- 13-MAR-2019 | Finished user input exception handling.
+  * need to run test cases.
+  * need to do code clean up (unnecessary whitespace, etc.)).
 
 ---
 #### 5. Future Improvements
