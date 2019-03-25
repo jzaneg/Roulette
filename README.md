@@ -17,7 +17,7 @@ This application mimics the classic casino 'Roulette' game. Primarily coded in C
 
 -2.Code front end GUI using HTML, CSS, JavaScript. Need both Roulette Wheel and board.
 
-    In Progess
+    In Progress
 
 -3.Testing and Deployment
   
