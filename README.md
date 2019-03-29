@@ -7,7 +7,6 @@ This application mimics the classic casino 'Roulette' game. Primarily coded in C
 - HTML
 - CSS 
 - JavaScript
-- Node.js
 
 ### Project Phases
 ---
